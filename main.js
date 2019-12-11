@@ -6,3 +6,18 @@
 // se il numero restituito dalle API è > 5, il quadratino diventa verde
 // Nome repo: js-jq-ajax-grigliaquad
 // Buon lavoro!
+
+
+// chiamata all'API boolean
+
+$.ajax({
+    'url': 'https://flynn.boolean.careers/exercises/api/random/int',
+    'method': 'GET',
+    'success': function(data){
+        alert('ok');
+        console.log(data);
+    },
+    'error': function(){
+        alert('Ops, c\'è un errore');
+    },
+});
