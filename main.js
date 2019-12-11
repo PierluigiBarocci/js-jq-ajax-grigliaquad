@@ -7,9 +7,10 @@
 // Nome repo: js-jq-ajax-grigliaquad
 // Buon lavoro!
 
-// vorrei creare il tutto utilizzando handlebars, veidamo cosa succede
+// vorrei creare il tutto utilizzando HANDLEBARS, vediamo cosa succede
+
 // uso un ciclo for per assicurarmi che la cosa avvenga 6 volte
-// vorrei che creaase 6 righe
+// vorrei che creasse 6 righe
 for (var i = 0; i < 6; i++) {
     // a ogni ciclo:
     // recupero il template per quella che sarà la mia row
@@ -37,7 +38,10 @@ $('.square').click(function(){
         'url': 'https://flynn.boolean.careers/exercises/api/random/int',
         'method': 'GET',
         'success': function(data){
+            // assegno ad una variabile il numero che mi restituisce
             var ranNum = data.response;
+            // do in pasto alla funzione che ho creato il numero random
+            // e il quadratino che ho selezionato (quel 'that' salva la situazione)
             myColoring(ranNum, that);
         },
         'error': function(){
