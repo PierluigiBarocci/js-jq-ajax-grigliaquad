@@ -16,19 +16,23 @@ $('.square').click(function(){
         'url': 'https://flynn.boolean.careers/exercises/api/random/int',
         'method': 'GET',
         'success': function(data){
-            alert('ok');
-            console.log(data);
             var ranNum = data.response;
-            console.log(ranNum);
-            if (ranNum <= 5) {
-                that.addClass('yellow');
-            } else {
-                that.addClass('green');
-            }
-            that.text(ranNum);
+            myColoring(ranNum, that);
         },
         'error': function(){
             alert('Ops, c\'è un errore');
         },
     });
 });
+
+
+// funzione da inserire nella chiamata AJAX
+
+function myColoring (a, subject) {
+    if (a <= 5) {
+        subject.addClass('yellow');
+    } else {
+        subject.addClass('green');
+    }
+    subject.text(a);
+}
