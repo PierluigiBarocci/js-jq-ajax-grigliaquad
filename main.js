@@ -33,21 +33,25 @@ for (var i = 0; i < 6; i++) {
 $('.square').click(function(){
     // inziamo portandoci dietro questo quadratino
     var that = $(this);
-    // chiamata all'API boolean
-    $.ajax({
-        'url': 'https://flynn.boolean.careers/exercises/api/random/int',
-        'method': 'GET',
-        'success': function(data){
-            // assegno ad una variabile il numero che mi restituisce
-            var ranNum = data.response;
-            // do in pasto alla funzione che ho creato il numero random
-            // e il quadratino che ho selezionato (quel 'that' salva la situazione)
-            myColoring(ranNum, that);
-        },
-        'error': function(){
-            alert('Ops, c\'è un errore');
-        },
-    });
+    // ATTENZIONE - CASO LIMITE: ho aggiunto questo controllo perchè prima, ogni volta che cliccavo su un quadratino già cliccato, ricambiava classe, giustamente.
+    // NON VOGLIO CHE LO FACCIA!!
+    if (!that.hasClass('yellow') && !that.hasClass('green')) {
+        // chiamata all'API boolean
+        $.ajax({
+            'url': 'https://flynn.boolean.careers/exercises/api/random/int',
+            'method': 'GET',
+            'success': function(data){
+                // assegno ad una variabile il numero che mi restituisce
+                var ranNum = data.response;
+                // do in pasto alla funzione che ho creato il numero random
+                // e il quadratino che ho selezionato (quel 'that' salva la situazione)
+                myColoring(ranNum, that);
+            },
+            'error': function(){
+                alert('Ops, c\'è un errore');
+            },
+        });
+    }
 });
 
 
