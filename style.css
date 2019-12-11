@@ -20,8 +20,19 @@ body {
 .square {
     width: 60px;
     height: 60px;
-    background-color: yellow;
+    background-color: lightblue;
     border: 1px solid black;
     margin: 0 5px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+.square.yellow {
+    background-color: yellow;
+}
+.square.green {
+    background-color: green;
 }

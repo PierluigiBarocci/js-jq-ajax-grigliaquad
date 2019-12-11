@@ -7,17 +7,28 @@
 // Nome repo: js-jq-ajax-grigliaquad
 // Buon lavoro!
 
-
-// chiamata all'API boolean
-
-$.ajax({
-    'url': 'https://flynn.boolean.careers/exercises/api/random/int',
-    'method': 'GET',
-    'success': function(data){
-        alert('ok');
-        console.log(data);
-    },
-    'error': function(){
-        alert('Ops, c\'è un errore');
-    },
+// intercettare il click su quadratino
+$('.square').click(function(){
+    // inziamo portandoci dietro questo quadratino
+    var that = $(this);
+    // chiamata all'API boolean
+    $.ajax({
+        'url': 'https://flynn.boolean.careers/exercises/api/random/int',
+        'method': 'GET',
+        'success': function(data){
+            alert('ok');
+            console.log(data);
+            var ranNum = data.response;
+            console.log(ranNum);
+            if (ranNum <= 5) {
+                that.addClass('yellow');
+            } else {
+                that.addClass('green');
+            }
+            that.text(ranNum);
+        },
+        'error': function(){
+            alert('Ops, c\'è un errore');
+        },
+    });
 });
