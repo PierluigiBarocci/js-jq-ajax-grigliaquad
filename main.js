@@ -7,6 +7,27 @@
 // Nome repo: js-jq-ajax-grigliaquad
 // Buon lavoro!
 
+// vorrei creare il tutto utilizzando handlebars, veidamo cosa succede
+// uso un ciclo for per assicurarmi che la cosa avvenga 6 volte
+// vorrei che creaase 6 righe
+for (var i = 0; i < 6; i++) {
+    // a ogni ciclo:
+    // recupero il template per quella che sarà la mia row
+    var template_html = $('#templateRow').html();
+    // compilo il template con la funzione specifica di Handlebars
+    var template_function = Handlebars.compile(template_html);
+    // creo l'oggetto con le proprietà che mi interesseranno
+    var properties = {
+        'main': 'row',
+        'sons': 'square'
+    };
+    // do il mio oggetto in pasto alla funzione
+    var final = template_function(properties);
+    // lo appendo al container
+    $('.container').append(final);
+    // appende una row e riparte un nuovo ciclo
+};
+
 // intercettare il click su quadratino
 $('.square').click(function(){
     // inziamo portandoci dietro questo quadratino
@@ -27,7 +48,6 @@ $('.square').click(function(){
 
 
 // funzione da inserire nella chiamata AJAX
-
 function myColoring (a, subject) {
     if (a <= 5) {
         subject.addClass('yellow');
